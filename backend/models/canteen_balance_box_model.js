@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   CanteenBalanceBox.init({
-    balance: DataTypes.BIGINT
+    balance: DataTypes.FLOAT
   }, {
     sequelize,
     tableName: 'canteen_balance_boxes',
