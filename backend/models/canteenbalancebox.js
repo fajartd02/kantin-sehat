@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     balance: DataTypes.BIGINT
   }, {
     sequelize,
+    tableName: 'canteen_balance_boxes',
     modelName: 'CanteenBalanceBox',
   });
   return CanteenBalanceBox;
