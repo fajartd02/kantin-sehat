@@ -1,14 +1,12 @@
 const express = require('express');
 const { sequelize } = require('./models');
-
-const app = express();
-app.use(express.json());
+const router = require('./routes');
 
 const PORT = 5000;
+const app = express();
 
-app.get("/", async(req, res) => {
-  res.send({message: "anjay"})
-})
+app.use(express.json());
+app.use(router);
 
 app.listen(PORT, async () => {
   console.log("Server running at http://localhost:" + PORT);

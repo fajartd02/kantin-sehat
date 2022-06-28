@@ -1,9 +1,7 @@
-import express from "express";
-import { register } from "../controller/auth_controller.js";
-
+const express = require("express")
+const { addBalance } = require("../controllers/v1/canteen_balance_box_controller.js");
 const router = express.Router();
 
-// Auhtentication Controller
-router.get("/auth/register", );
+router.get("/balance", addBalance);
 
-export default router;
+module.exports = router;
