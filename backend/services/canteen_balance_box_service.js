@@ -3,18 +3,13 @@ const { CanteenBalanceBox } = require('../models');
 class CanteenBalanceBoxService {
 	async addingMoneyToCanteen(id, newBalance) {
 		const canteen = await CanteenBalanceBox.findOne({where: {id}});
-		console.log(canteen);
-
 		if(canteen == null) {
 			await CanteenBalanceBox.create({balance: 0});
 			canteen = await CanteenBalanceBox.findOne({where: {id}});
 		}
-
 		let { balance } = canteen;
 		let totalBalance = balance + newBalance;
-
 		await CanteenBalanceBox.update({balance: totalBalance}, {where: {id}});
-
 		return {
 			message_developer: "Successfully added balance",
 			status_code: 400,
@@ -23,7 +18,6 @@ class CanteenBalanceBoxService {
 			after_added_balance: totalBalance
 		}
 	}
-
 }
 
 module.exports = new CanteenBalanceBoxService();
