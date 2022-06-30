@@ -8,11 +8,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 const app = express();
 
-// Middleware
-// app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
-app.use(cookieParser());
-app.use(express.json());
-app.use(router);
+activatedMiddleware();
 
 app.listen(PORT, async () => {
   await connectToDatabase();
@@ -26,4 +22,11 @@ async function connectToDatabase() {
   } catch(err) {
     console.log(err);
   }
+}
+
+function activatedMiddleware() {
+  // app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+  app.use(cookieParser());
+  app.use(express.json());
+  app.use(router);
 }
