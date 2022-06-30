@@ -15,11 +15,30 @@ class CanteenBalanceBoxService {
 		await CanteenBalanceBox.update({balance: totalBalance}, {where: {id}});
 
 		return {
-			message_developer: "Successfully added balance",
-			status_code: 400,
-			before_added_balance: balance,
-			added_balance: newBalance,
-			after_added_balance: totalBalance
+			meta: {
+				message_developer: "Successfully added balance",
+				status_code: 400
+			},
+			response: {
+				before_added_balance: balance,
+				added_balance: newBalance,
+				after_added_balance: totalBalance
+			}
+		}
+	}
+
+	async getMoneyFromCanteen(id) {
+		const canteen = await CanteenBalanceBox.findOne({where: {id}});
+		const { balance } = canteen;
+
+		return {
+			meta: {
+				message_developer: "Successfully added balance",
+				status_code: 400,
+			},
+			response: {
+				balance: balance
+			}
 		}
 	}
 }
