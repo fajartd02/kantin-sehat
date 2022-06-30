@@ -1,8 +1,8 @@
 const express = require('express');
-const { sequelize } = require('./models');
 const router = require('./routes');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
+const { sequelize } = require('./models');
 
 dotenv.config();
 const PORT = process.env.PORT;
