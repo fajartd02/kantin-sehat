@@ -1,5 +1,5 @@
-const CanteenBalanceBoxService = require("../../services/canteen_balance_box_service");
-const { errorInternal } = require("../../utils/error_message");
+const CanteenBalanceBoxService = require('../../services/canteen_balance_box_service');
+const { errorInternal } = require('../../utils/error_message');
 const id = 1; // just 1 wallet
 
 module.exports = {
