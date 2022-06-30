@@ -1,4 +1,5 @@
 const CanteenBalanceBoxService = require("../../services/canteen_balance_box_service");
+const { errorInternal } = require("../../utils/error_message");
 const id = 1; // just 1 wallet
 
 module.exports = {
@@ -8,10 +9,7 @@ module.exports = {
       const response = await CanteenBalanceBoxService.addingMoneyToCanteen(id, balance);
       res.json(response);
     } catch(err) {
-      return res.send({
-        message: "Error internal",
-        status_code: "500"
-      });
+      return res.send(errorInternal);
     }
   },
 
@@ -20,10 +18,7 @@ module.exports = {
       const response = await CanteenBalanceBoxService.getMoneyFromCanteen(id);
       res.json(response);
     } catch(err) {
-      return res.send({
-        message: "Error internal",
-        status_code: "500"
-      });
+      return res.send(errorInternal);
     }
   }
 };
