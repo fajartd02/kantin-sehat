@@ -58,8 +58,9 @@ class UserService {
 
     const userId = user.student_id;
     await User.update({ refreshToken: null }, { where: { student_id: userId } });
-
-    return 
+    return {
+      status_code: 404
+    }
   }
 
 }
