@@ -9,4 +9,6 @@ router.get("/api/v1/balance", getBalance);
 
 // Auth
 router.post("/auth/register", register)
+
+
 module.exports = router;
