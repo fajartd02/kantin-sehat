@@ -10,5 +10,14 @@ module.exports = {
     } catch(err) {
       return res.send(errorInternal);
     }
+  },
+  login: async(req, res) => {
+    const { student_id, password } = req.body;
+    try {
+      const response = await UserService.login(student_id, password);
+      return res.json(response);
+    } catch(err) {
+      return res.end(errorInternal);
+    }
   }
 };
