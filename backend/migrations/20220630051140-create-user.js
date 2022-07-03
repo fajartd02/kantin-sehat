@@ -1,15 +1,22 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('canteen_balance_boxes', {
+    await queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
+        primaryKey: false,
         type: Sequelize.INTEGER
       },
-      balance: {
-        type: Sequelize.BIGINT
+      student_id: {
+        type: Sequelize.STRING,
+        primaryKey: true
+      },
+      password: {
+        type: Sequelize.STRING
+      },
+      refresh_token: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('canteen_balance_boxes');
+    await queryInterface.dropTable('users');
   }
 };
