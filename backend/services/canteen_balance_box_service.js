@@ -2,17 +2,17 @@ const { CanteenBalanceBox } = require('../models');
 
 class CanteenBalanceBoxService {
 	async addingMoneyToCanteen(id, newBalance) {
-		const canteen = await CanteenBalanceBox.findOne({where: {id}});
-		
-		if(canteen == null) {
-			await CanteenBalanceBox.create({balance: 0});
-			canteen = await CanteenBalanceBox.findOne({where: {id}});
+		const canteen = await CanteenBalanceBox.findOne({ where: { id } });
+
+		if (canteen == null) {
+			await CanteenBalanceBox.create({ balance: 0 });
+			canteen = await CanteenBalanceBox.findOne({ where: { id } });
 		}
 
 		let { balance } = canteen;
 		let totalBalance = balance + newBalance;
 
-		await CanteenBalanceBox.update({balance: totalBalance}, {where: {id}});
+		await CanteenBalanceBox.update({ balance: totalBalance }, { where: { id } });
 
 		return {
 			message_developer: "Successfully added balance",
