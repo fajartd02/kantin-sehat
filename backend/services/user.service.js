@@ -23,7 +23,7 @@ class UserService {
 
   async login(student_id, password) {
     const user = await User.findOne({ where: { student_id: student_id } });
-    if(!user) {
+    if (!user) {
       return accountNotExist;
     }
 
@@ -41,9 +41,6 @@ class UserService {
       expiresIn: '1d'
     });
 
-    console.log(accessToken);
-    console.log(refreshToken);
-
     await User.update({ refresh_token: refreshToken }, {
       where: {
         student_id: userId
@@ -52,7 +49,21 @@ class UserService {
 
     return sucessfullyLogin(accessToken);
   }
+
+  async logout(refreshToken) {
+    const user = await User.findOne({ where: { refresh_token: refreshToken } });
+    if (!user) {
+      return accountNotExist;
+    }
+
+    const userId = user.student_id;
+    await User.update({ refreshToken: null }, { where: { student_id: userId } });
+
+    return 
+  }
+
 }
+
 
 const sucessfullyLogin = (accessToken, refresh_token) => {
   return {
@@ -64,6 +75,16 @@ const sucessfullyLogin = (accessToken, refresh_token) => {
       accessToken,
       refresh_token
     }
+  }
+}
+
+const sucessfullyLogout = {
+  meta: {
+    message_developer: "Successfully logout",
+    status_code: 400
+  },
+  response: {
+    refresh_token: null
   }
 }
 
