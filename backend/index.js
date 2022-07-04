@@ -2,6 +2,7 @@ const express = require('express');
 const router = require('./routes');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const { sequelize } = require('./models');
 
 dotenv.config();
