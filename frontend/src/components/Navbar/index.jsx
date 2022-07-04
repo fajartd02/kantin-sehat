@@ -18,6 +18,9 @@ function Navbar() {
               <Link to="/" style={{ textDecoration: "none" }}>
                   <a className="nav-link active">Dashboard</a>
               </Link>
+              <Link to="/product" style={{ textDecoration: "none" }}>
+                  <a className="nav-link active">Add Product</a>
+              </Link>
               <Link to="/balance" style={{ textDecoration: "none" }}>
                   <a className="nav-link active">Balance Box</a>
               </Link>
