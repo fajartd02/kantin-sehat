@@ -47,7 +47,7 @@ class UserService {
       }
     });
 
-    return sucessfullyLogin(accessToken);
+    return sucessfullyLogin(accessToken, refreshToken);
   }
 
   async logout(refreshToken) {
