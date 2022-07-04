@@ -6,15 +6,17 @@ class ProductService {
 		if (!products) {
 			return productNotExist;
 		}
-		return {
-			meta: {
-				message_developer: "OK!",
-				status_code: 200
-			},
-			response: {
-				products
-			}
+		return productResponse(products, "Sucessfuly get all products");
+	}
+
+	async getProduct(id) {
+		const product = await Product.findOne({ where: { id } });
+
+		if (!product) {
+			return productNotExist;
 		}
+
+		return productResponse(product, "Sucessfully get specific product");
 	}
 
 	async addProduct(body) {
@@ -61,7 +63,7 @@ const productNotExist = {
 const successfullyDeletedProduct = ({ id, product_name, product_image, description, price }) => {
 	return {
 		meta: {
-			message_developer: "Successfully deleted account",
+			message_developer: "Successfully deleted product",
 			status_code: 400
 		},
 		response: {
@@ -77,7 +79,7 @@ const successfullyDeletedProduct = ({ id, product_name, product_image, descripti
 const successfullyAddedProduct = (student_id, product_name, product_image, description, price) => {
 	return {
 		meta: {
-			message_developer: "Successfully added account",
+			message_developer: "Successfully added product",
 			status_code: 400
 		},
 		response: {
@@ -86,6 +88,18 @@ const successfullyAddedProduct = (student_id, product_name, product_image, descr
 			product_image,
 			description,
 			price
+		}
+	}
+}
+
+const productResponse = (product, message) => {
+	return {
+		meta: {
+			message_developer: message,
+			status_code: 400
+		},
+		response: {
+			product
 		}
 	}
 }
