@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 
 const verifyToken = async (req, res, next) => {
 	const authHeader = req.headers['authorization'];

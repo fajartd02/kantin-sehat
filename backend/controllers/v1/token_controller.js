@@ -1,4 +1,5 @@
 const TokenService = require('../../services/token_service.js');
+const { errorInternal } = require('../../utils/error_message.js');
 
 module.exports = {
 	refreshToken: async(req, res) => {
@@ -11,7 +12,7 @@ module.exports = {
 			const response = await TokenService.getToken(refreshToken);
 			res.json(response);
 		} catch(err) {
-			console.log(err);
+			return res.send(errorInternal);
 		}
 	}
 }

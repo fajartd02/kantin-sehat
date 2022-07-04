@@ -3,6 +3,7 @@ const { addBalance, getBalance } = require("../controllers/v1/canteen_balance_bo
 const { register, login, logout } = require('../controllers/user_controller.js');
 const { refreshToken } = require('../controllers/v1/token_controller.js');
 const { getProducts } = require("../controllers/v1/product_controller.js");
+const { verifyToken } = require("../middleware/verifyToken.js");
 const router = express.Router();
 
 // Balance Canteen Box
