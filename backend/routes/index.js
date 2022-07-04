@@ -19,7 +19,7 @@ router.post("/auth/logout", logout);
 router.get("/api/v1/products", getProducts);
 router.get("/api/v1/products/:id", getProduct);
 router.post("/api/v1/products", verifyToken, addProduct);
-router.delete("/api/v1/products/:id", buyProduct);
+router.delete("/api/v1/products/:id", verifyToken, buyProduct);
 
 // Token
 router.get('/token', refreshToken);
