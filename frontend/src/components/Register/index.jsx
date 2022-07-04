@@ -9,19 +9,25 @@ function Register() {
   const navigate = useNavigate();
 
   const Register = async (e) => {
-    e.preventDefault(); 
-    const response = await axios.post('http://localhost:8080/auth/register', {
+    e.preventDefault();
+    const validCharacter = 5;
+    if(studentId.length != validCharacter) {
+      setMessage("ID should 5 character!");
+    } else {
+      const response = await axios.post('http://localhost:8080/auth/register', {
         student_id: studentId,
         password: password,
-    });
-    const { status_code } = response.data.meta;
-    const notValid = 422;
-    if(status_code === notValid) {
-      setMessage("Please enter valid ID!");
-    } else {
-      navigate("/");
+      });
+      const { status_code } = response.data.meta;
+      const notValid = 422;
+      if(status_code === notValid) {
+        setMessage("Please enter valid ID!");
+      } else {
+        navigate("/");
+      }
     }
   }
+  
   return (
     <div className='container text-center' style={{marginTop: "12.5%"}}>
     <h2 className='mb-4 text-success'>Register</h2>
