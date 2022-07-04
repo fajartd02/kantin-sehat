@@ -3,9 +3,7 @@ import jwt from "jsonwebtoken";
 const verifyToken = async (req, res, next) => {
 	const authHeader = req.headers['authorization'];
 	const token = authHeader && authHeader.split(' ')[1];
-	console.log("authH > " + authHeader);
-	console.log("Token > " + token);
-
+	
 	if (token == null) {
 		return res.send({ status_code: 401, message: "Unauthorized" });
 	}
