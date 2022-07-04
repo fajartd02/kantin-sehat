@@ -8,7 +8,7 @@ const verifyToken = async (req, res, next) => {
 		return res.send({ status_code: 401, message: "Unauthorized" });
 	}
 
-	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+	jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, decoded) => {
 		if (err) {
 			return res.send({ status_code: 403, message: "Forbidden" });
 		}

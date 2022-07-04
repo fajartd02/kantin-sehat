@@ -7,7 +7,7 @@ const { verifyToken } = require("../middleware/verifyToken.js");
 const router = express.Router();
 
 // Balance Canteen Box
-router.post("/api/v1/balance", addBalance);
+router.post("/api/v1/balance", verifyToken, addBalance);
 router.get("/api/v1/balance", getBalance);
 
 // Auth
