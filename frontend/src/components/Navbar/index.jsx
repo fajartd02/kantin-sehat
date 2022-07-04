@@ -27,6 +27,9 @@ function Navbar() {
               <Link to="/login" style={{ textDecoration: "none" }}>
                   <a className="nav-link active">Login</a>
               </Link>
+              <Link to="/register" style={{ textDecoration: "none" }}>
+                  <a className="nav-link active">Register</a>
+              </Link>
             </div>
           </div>
         </div>
