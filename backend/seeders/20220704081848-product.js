@@ -7,7 +7,7 @@ module.exports = {
         {
           student_id: "45615",
           product_name: "T-shirt T-rex",
-          product_image: "src/assets/img/2.jpg",
+          product_image: "/assets/img/2.jpg",
           description: "Terbuat dari bahan lateks yang sangat lembut",
           price: 50000,
           createdAt: new Date(),
@@ -16,7 +16,7 @@ module.exports = {
         {
           student_id: "45615",
           product_name: "T-shirt Polo",
-          product_image: "src/assets/img/1.jpg",
+          product_image: "/assets/img/1.jpg",
           description: "Terbuat dari bahan katun yang sangat lembut",
           price: 30000,
           createdAt: new Date(),
