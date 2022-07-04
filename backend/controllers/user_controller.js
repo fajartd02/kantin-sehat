@@ -23,7 +23,7 @@ module.exports = {
 
       return res.json(response);
     } catch (err) {
-      return res.send(errorInternal);
+      return res.send(accountNotExist);
     }
   },
   logout: async (req, res) => {
@@ -38,3 +38,11 @@ module.exports = {
     return res.send({ status_code: 200, message: "OK", message_developer: "Berhasil Logout!" });
   }
 };
+
+const accountNotExist = {
+  meta: {
+    message_developer: "Account not exist!",
+    status_code: 401
+  },
+  response: null
+}
