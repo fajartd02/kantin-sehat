@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Balance Canteen Box
 router.post("/api/v1/balance", verifyToken, addBalance);
-router.get("/api/v1/balance", getBalance);
+router.get("/api/v1/balance", verifyToken, getBalance);
 
 // Auth
 router.post("/auth/register", register);
