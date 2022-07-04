@@ -3,7 +3,7 @@ const { Product } = require('../models');
 class ProductService {
 	async getProducts() {
 		const products = await Product.findAll();
-		if(!products) {
+		if (!products) {
 			return productNotExist;
 		}
 		return {
@@ -16,6 +16,27 @@ class ProductService {
 			}
 		}
 	}
+
+	async addProduct(params) {
+		const {
+			student_id,
+			product_name,
+			product_image,
+			description,
+			price
+		} = params;
+
+		await Product.create({
+			student_id,
+			product_name,
+			product_image,
+			description,
+			price
+		});
+
+		return successfullyAddedProduct(student_id, product_name, product_image, description, price);
+		
+	}
 }
 
 const productNotExist = {
@@ -24,6 +45,22 @@ const productNotExist = {
 		status_code: 404
 	},
 	response: null
+}
+
+const successfullyAddedProduct = (student_id, product_name, product_image, description, price) => {
+	return {
+		meta: {
+			message_developer: "Successfully added account",
+			status_code: 400
+		},
+		response: {
+			student_id,
+			product_name,
+			product_image,
+			description,
+			price
+		}
+	}
 }
 
 module.exports = new ProductService();
