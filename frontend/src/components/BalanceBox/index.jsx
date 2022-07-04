@@ -5,6 +5,9 @@ function BalanceBox() {
   return (
     <>
       <Navbar />
+      <div className='container'>
+        <h1>Balance Box</h1>
+      </div>
     </>
   )
 }
