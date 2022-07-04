@@ -14,11 +14,21 @@ module.exports = {
 
 	addProduct: async(req, res) => {
 		try{
-			const params = req.body;
-			const response = await ProductService.addProduct(params);
+			const body = req.body;
+			const response = await ProductService.addProduct(body);
 			res.json(response);
 		} catch(err) {
 			return res.send(errorInternal);
+		}
+	},
+
+	buyProduct: async(req, res) => {
+		try {
+			const params = req.params;
+			const response = await ProductService.buyProduct(params);
+			res.json(response);
+		} catch(err) {
+			return res.send(errorInternal); 
 		}
 	}
 }

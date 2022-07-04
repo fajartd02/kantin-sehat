@@ -2,7 +2,7 @@ const express = require("express")
 const { addBalance, getBalance } = require("../controllers/v1/canteen_balance_box_controller.js");
 const { register, login, logout } = require('../controllers/user_controller.js');
 const { refreshToken } = require('../controllers/v1/token_controller.js');
-const { getProducts, addProduct } = require("../controllers/v1/product_controller.js");
+const { getProducts, addProduct, buyProduct } = require("../controllers/v1/product_controller.js");
 const { verifyToken } = require("../middleware/verifyToken.js");
 const router = express.Router();
 
@@ -17,7 +17,8 @@ router.post("/auth/logout", logout);
 
 // Product
 router.get("/api/v1/products", getProducts);
-router.post("/api/v1/products", addProduct);
+router.post("/api/v1/products", verifyToken, addProduct);
+router.delete("/api/v1/products/:id", buyProduct);
 
 // Token
 router.get('/token', refreshToken);
