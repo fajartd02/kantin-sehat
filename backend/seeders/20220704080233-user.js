@@ -6,14 +6,14 @@ module.exports = {
 			[
 				{
 					student_id: "45615",
-					password: "$2b$10$3t9PSeGUh.4ujH3bdQcE2.rkFPMlyOG.Ir/72w5Q7EhmN6CJ4HsZK", // 123456
+					password: "$2b$10$3t9PSeGUh.4ujH3bdQcE2.rkFPMlyOG.Ir/72w5Q7EhmN6CJ4HsZK", // 12345
 					refresh_token: null,
 					createdAt: new Date(),
 					updatedAt: new Date()
 				},
 				{
 					student_id: "13307",
-					password: "$2b$10$3t9PSeGUh.4ujH3bdQcE2.rkFPMlyOG.Ir/72w5Q7EhmN6CJ4HsZK", // 123456
+					password: "$2b$10$3t9PSeGUh.4ujH3bdQcE2.rkFPMlyOG.Ir/72w5Q7EhmN6CJ4HsZK", // 12345
 					refresh_token: null,
 					createdAt: new Date(),
 					updatedAt: new Date()
