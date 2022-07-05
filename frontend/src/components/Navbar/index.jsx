@@ -1,10 +1,17 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-
+import axios from 'axios'
+import jwt_decode from 'jwt-decode';
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const refreshToken = async() => {
+    const response = await axios.get('http://localhost:8080/token');
+    console.log(response.data);
+  }
+
   return (
     <>
+      <button onClick={refreshToken} className='btn btn-primary'>Get Token</button>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div className='container'>
           <Link to="/" style={{ textDecoration: "none" }}>
