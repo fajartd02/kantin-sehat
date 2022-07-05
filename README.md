@@ -102,18 +102,18 @@ After you follow through above section, you can use website on http://localhost:
 ## Features
 - **Login**\
  i.  Insert student ID and password that is registered\
- ii. Only registered student can login to the canteen\
+ ii. Only registered student can login to the canteen
 
 - **The Store**\
  i. Unregistered user can only view the listed items in store\
  ii. Unregistered user cannot see the canteen's balance\
- iii. User that logged in as student can add and buy any items in the canteen\
+ iii. User that logged in as student can add and buy any items in the canteen
 
 - **The Canteen's Balance Box**\
- i. Only logged in user can add or withdraw money (in Rupiah) to the canteen's balance.\
+ i. Only logged in user can add or withdraw money (in Rupiah) to the canteen's balance.
 
 - **Register**\
- i. Anyone can register account\
+ i. Anyone can register account
 
 ## Notice
 - Images post not handled yet
