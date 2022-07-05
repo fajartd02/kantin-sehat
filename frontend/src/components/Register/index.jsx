@@ -23,7 +23,7 @@ function Register() {
       const alreadyExists = 409;
       if(status_code === notValid) {
         setMessage("Please enter valid ID!");
-      } else if(status_code == alreadyExists) {
+      } else if(status_code === alreadyExists) {
         setMessage("Account already exists!");
       } else {
         navigate("/login");
