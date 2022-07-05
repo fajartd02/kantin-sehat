@@ -124,6 +124,6 @@ After you follow through above section, you can use website on http://localhost:
 - Safety from cross-site scripting and cross-site request forgery attack.
 
 ## Contact
-Fajar Muhammad Hamka - fajarmh2@gmail.com\
-Instagram: [@fajarrmh_](https://www.instagram.com/fajarrmh_/?hl=en)\
-Linkedin: [Fajar Muhammad Hamka](https://www.linkedin.com/in/fajarhamka/)
+**Fajar Muhammad Hamka** - fajarmh2@gmail.com\
+**Instagram:** [@fajarrmh_](https://www.instagram.com/fajarrmh_/?hl=en)\
+**Linkedin:** [Fajar Muhammad Hamka](https://www.linkedin.com/in/fajarhamka/)
