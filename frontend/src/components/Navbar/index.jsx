@@ -10,6 +10,7 @@ function Navbar() {
 
   const refreshToken = async () => {
     const response = await axios.get('http://localhost:8080/token');
+    setToken(response.data.response.accessToken);
     const decoded = jwt_decode(response.data.response.accessToken);
     const { userId } = decoded;
     setStudentId(userId);
