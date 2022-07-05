@@ -10,6 +10,8 @@ class CanteenBalanceBoxService {
 		}
 
 		let { balance } = canteen;
+		balance = parseFloat(balance);
+		newBalance = parseFloat(newBalance);
 		let totalBalance = balance + newBalance;
 
 		await CanteenBalanceBox.update({ balance: totalBalance }, { where: { id } });
