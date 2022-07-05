@@ -55,9 +55,27 @@ PORT=8080
 ```
 npm install --global yarn
 ```
+- Install sequlize-cli global
+```
+npm install --g sequelize-cli
+```
 - Install dependencies
 ```
 yarn
+```
+- Create your own database that related with username development in config.js
+- Migrate Database
+```
+npx sequelize-cli db:migrate
+```
+- Run seed data
+```
+npx sequelize-cli db:seed:all
+```
+**Note:** Anda dapat menggunakan akun seeding dengan 
+```
+student id: 45615
+password: 12345
 ```
 - Run your backend server
 ```
@@ -78,7 +96,12 @@ yarn start
 - Now you can running frontend server at http://localhost:3000
 
 ### Conclusion
-After you follow through above section, you can use website on http://localhost:3000
+- After you follow through above section, you can use website on http://localhost:3000
+- Anda dapat login dengan menggunakan akun seeding.
+```
+student id: 45615
+password: 12345
+```
 
 ## Backend Powered Using
 - Express.js
