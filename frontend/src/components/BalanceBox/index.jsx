@@ -10,6 +10,8 @@ function BalanceBox() {
   const [expire, setExpire] = useState('');
   const [balance, setBalance] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [inputBalance, setInputBalance] = useState('');
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const refreshToken = async () => {
@@ -46,14 +48,39 @@ function BalanceBox() {
         Authorization: `Bearer ${token}`
       }
     });
-    console.log(response.data.response);
+    setBalance(response.data.response.balance)
     setLoading(false);
+  }
+
+  const addMoney = async () => {
+    const amount = parseFloat(inputBalance);
+    console.log(amount);
+  }
+
+  const withdrawMoney = async () => {
+    let amount = parseFloat(inputBalance);
+    if (amount > balance) {
+      setMessage("Balance not enough!");
+    } else {
+      setMessage("Success for withdraw!");
+      amount *= -1;
+      const response = await axiosJWT.post('http://localhost:8080/api/v1/balance', {
+        balance: amount
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      const { after_added_balance } = response.data.response
+      setBalance(after_added_balance)
+    }
   }
 
   useEffect(() => {
     refreshToken();
     getBalanceBox();
-  })
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -69,9 +96,17 @@ function BalanceBox() {
         {(token && loading) && <h1>Loading...</h1>}
         {(token && !loading) &&
           <>
-            <h1>Rp{balance}</h1>
-            <button className='btn btn-primary mt-5' style={{marginRight: '16px'}}>Add Money</button>
-            <button className='btn btn-success mt-5'>Withdraw Money</button>
+            <h1>Rp{balance}</h1> <br />
+            <input type="text"
+              className='input center'
+              placeholder='amount'
+              value={inputBalance}
+              onChange={(e) => setInputBalance(e.target.value)}
+            />
+            <br />
+            <button className='btn btn-primary mt-5' style={{ marginRight: '16px' }} onClick={addMoney}>Add Money</button>
+            <button className='btn btn-success mt-5' onClick={withdrawMoney}>Withdraw Money</button>
+            <h5 className='text-danger mt-3'>{message}</h5>
           </>
         }
 
