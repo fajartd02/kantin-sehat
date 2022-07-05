@@ -7,7 +7,6 @@ function Navbar() {
   const [token, setToken] = useState('');
   const [studentId, setStudentId] = useState('');
   const navigate = useNavigate();
-  const [login, setLogin] = useState(false);
 
   const refreshToken = async () => {
     const response = await axios.get('http://localhost:8080/token');
@@ -16,14 +15,21 @@ function Navbar() {
     setStudentId(userId);
   }
 
+  const logout = async() => {
+    try {
+        await axios.delete('http://localhost:8080/auth/logout');
+        navigate('/login');
+    } catch(err) {
+        console.log(err);
+    }
+}
+
   useEffect(() => {
     refreshToken();
   })
 
   return (
     <>
-
-
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className='container'>
           <Link to="/" style={{ textDecoration: "none" }}>
@@ -55,9 +61,7 @@ function Navbar() {
 
               {studentId &&
                 <>
-                <Link to="/logout" style={{ textDecoration: "none" }}>
-                  <a className="nav-link">Logout</a>
-                </Link>
+                  <button onClick={logout} className="btn btn-sm text-success">Logout</button>
                   <a className="nav-link" style={{position:"absolute", right:"10%"}}>Your ID: {studentId}</a>
                 </>
               }

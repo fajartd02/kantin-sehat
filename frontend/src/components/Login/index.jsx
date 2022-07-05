@@ -53,7 +53,7 @@ function Login() {
         <div className="field mt-5">
           <button className='btn btn-lg btn-success mb-3'>Login</button>
         </div>
-        <Link to="/register">Dont have an account? <u>Regist here</u></Link>
+        <Link to="/register" style={{textDecoration: "none"}}>Dont have an account? <u>REGISTER</u></Link>
       </form>
     </div>
 
