@@ -20,10 +20,13 @@ function Register() {
       });
       const { status_code } = response.data.meta;
       const notValid = 422;
+      const alreadyExists = 409;
       if(status_code === notValid) {
         setMessage("Please enter valid ID!");
+      } else if(status_code == alreadyExists) {
+        setMessage("Account already exists!");
       } else {
-        navigate("/");
+        navigate("/login");
       }
     }
   }
