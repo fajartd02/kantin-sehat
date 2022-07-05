@@ -101,7 +101,7 @@ After you follow through above section, you can use website on http://localhost:
 
 ## Features
 - **Login**\
- i.  Insert student ID and password that is registered\
+ i. Insert student ID and password that is registered\
  ii. Only registered student can login to the canteen
 
 - **The Store**\
