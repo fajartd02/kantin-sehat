@@ -53,8 +53,17 @@ function BalanceBox() {
   }
 
   const addMoney = async () => {
-    const amount = parseFloat(inputBalance);
-    console.log(amount);
+    let amount = parseFloat(inputBalance);
+    const response = await axiosJWT.post('http://localhost:8080/api/v1/balance', {
+      balance: amount
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    const { after_added_balance } = response.data.response
+    setBalance(after_added_balance)
+    setMessage("Success for add balance!");
   }
 
   const withdrawMoney = async () => {
@@ -62,7 +71,7 @@ function BalanceBox() {
     if (amount > balance) {
       setMessage("Balance not enough!");
     } else {
-      setMessage("Success for withdraw!");
+      setMessage("Success for withdraw balance!");
       amount *= -1;
       const response = await axiosJWT.post('http://localhost:8080/api/v1/balance', {
         balance: amount
