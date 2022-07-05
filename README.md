@@ -115,7 +115,7 @@ After you follow through above section, you can use website on http://localhost:
 - **Register**\
  i. Anyone can register account
 
-- **Logout**
+- **Logout**\
  i. User logged in can be logout
 
 ## Notice
