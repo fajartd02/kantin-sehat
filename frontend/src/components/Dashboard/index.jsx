@@ -25,6 +25,7 @@ function Dashboard() {
         <div className='row'>
           {products.map((product, index) => (
             <Card 
+            key={product.id}
             id={product.id}
             student_id={product.student_id}
             product_name={product.product_name}
