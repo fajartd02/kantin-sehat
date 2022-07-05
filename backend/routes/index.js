@@ -13,7 +13,7 @@ router.get("/api/v1/balance", verifyToken, getBalance);
 // Auth
 router.post("/auth/register", register);
 router.post("/auth/login", login);
-router.post("/auth/logout", logout);
+router.delete("/auth/logout", logout);
 
 // Product
 router.get("/api/v1/products", getProducts);
