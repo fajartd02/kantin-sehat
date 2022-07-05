@@ -72,7 +72,7 @@ npx sequelize-cli db:migrate
 ```
 npx sequelize-cli db:seed:all
 ```
-**Note:** Anda dapat menggunakan akun seeding dengan 
+**Note:** You can use account seed data
 ```
 student id: 45615
 password: 12345
@@ -97,7 +97,7 @@ yarn start
 
 ### Conclusion
 - After you follow through above section, you can use website on http://localhost:3000
-- Anda dapat login dengan menggunakan akun seeding.
+- You can login with account seed data.
 ```
 student id: 45615
 password: 12345
