@@ -12,6 +12,7 @@ function Product() {
   const [price, setPrice] = useState(0);
   const [token, setToken] = useState('');
   const [expire, setExpire] = useState('');
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const refreshToken = async () => {
@@ -40,13 +41,40 @@ function Product() {
     return Promise.reject(err);
   });
 
+  const [fotoUpload, setFotoUpload] = useState(null);
+
+  function useDisplayImage() {
+    const [result, setResult] = useState(null);
+    function uploader(e) {
+      const imageFile = e.target.files[0];
+      const reader = new FileReader();
+      setTimeout(() => {
+        reader.addEventListener("load", (e) => {
+          let test = "";
+          test = e.target.result;
+          setResult(test);
+          setFotoUpload(test);
+        });
+        reader.readAsDataURL(imageFile);
+      }, 100);
+    }
+    return { result, uploader };
+  }
+
+  const { result, uploader } = useDisplayImage();
+
   const uploadData = async (e) => {
     e.preventDefault();
+    if (productName === "") {
+      setMessage("product name must be filled!");
+      return;
+    }
     console.log("upload")
     setPrice(parseFloat(price));
     const response = await axiosJWT.post("http://localhost:8080/api/v1/products", {
       student_id: studentId,
       product_name: productName,
+      // product_image: result,
       product_image: "/assets/img/2.jpg",
       description: description,
       price: price
@@ -55,7 +83,7 @@ function Product() {
         Authorization: `Bearer ${token}`
       }
     });
-    console.log(response);
+    navigate("/");
   }
 
   useEffect(() => {
@@ -103,6 +131,21 @@ function Product() {
               />
             </div>
           </div>
+          <label htmlFor={"upload"}>
+            Upload Image
+            <input
+              type="file"
+              accept="image/*"
+              id="upload"
+              onChange={(e) => {
+                uploader(e);
+                const image = new Image();
+                image.src = window.URL.createObjectURL(e.target.files[0]);
+              }}
+              hidden
+            />
+          </label>
+          <p className='text-danger mt-5'>{message}</p>
           <div className="field mt-5">
             <button className='btn btn-lg btn-success mb-3'>Buy Products</button>
           </div>
